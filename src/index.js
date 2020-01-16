@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/index';
+import './config/ReactotronConfig';
 import Style from './styles';
 
 ReactDOM.render(
