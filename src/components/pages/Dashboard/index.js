@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import Register from '../Register';
-import Developer from '../Developer';
-import api from '../../services/api';
+import Register from '~/components/Register';
+import Developer from '~/components/Developer';
+import api from '~/services/api';
 import { Container, Aside, Main } from './styles';
 
 export default () => {
@@ -32,7 +32,11 @@ export default () => {
       <Main>
         <ul>
           {developers.map(dev => (
-            <Developer key={dev._id} dev={dev} />
+            <Developer
+              data-testid={`developer_${dev._id}`}
+              key={dev._id}
+              dev={dev}
+            />
           ))}
         </ul>
       </Main>
