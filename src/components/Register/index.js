@@ -1,8 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import PropTypes from 'prop-types';
+import * as Yup from 'yup';
 
 import { Block, Group, Submit } from './styles';
+
+const schema = Yup.object().shape({
+  github_username: Yup.string().required(),
+  techs: Yup.string().required(),
+  latitude: Yup.string().required(),
+  longitude: Yup.string().required(),
+});
 
 export default function Register({ onSubmit }) {
   const [latitude, setLatitude] = useState('');
@@ -33,7 +41,11 @@ export default function Register({ onSubmit }) {
   );
 
   return (
-    <Form onSubmit={handleSubmit} initialData={{ latitude, longitude }}>
+    <Form
+      schema={schema}
+      onSubmit={handleSubmit}
+      initialData={{ latitude, longitude }}
+    >
       <Block>
         <label htmlFor="github_username">Usuário do Github</label>
         <Input id="github_username" name="github_username" required />
