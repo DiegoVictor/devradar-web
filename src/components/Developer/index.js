@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
@@ -19,3 +20,12 @@ export default function Developer({ dev }) {
     </Container>
   );
 }
+
+Developer.propTypes = {
+  dev: PropTypes.shape({
+    avatar_url: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    techs: PropTypes.array.isRequired,
+    bio: PropTypes.string.isRequired,
+  }).isRequired,
+};

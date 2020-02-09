@@ -60,6 +60,6 @@ export default function Register({ onSubmit }) {
   );
 }
 
-Register.propTypes = PropTypes.shape({
+Register.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-});
+};
