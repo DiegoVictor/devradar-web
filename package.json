@@ -46,6 +46,8 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "factory-girl": "^5.0.4",
+    "faker": "^4.1.0",
     "prettier": "^1.19.1",
     "react-app-rewired": "^2.1.5",
     "reactotron-react-js": "^3.3.7"
