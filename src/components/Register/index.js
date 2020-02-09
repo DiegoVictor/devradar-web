@@ -48,26 +48,45 @@ export default function Register({ onSubmit }) {
     >
       <Block>
         <label htmlFor="github_username">Usuário do Github</label>
-        <Input id="github_username" name="github_username" required />
+        <Input
+          id="github_username"
+          data-testid="github_username"
+          name="github_username"
+          required
+        />
       </Block>
 
       <Block>
         <label htmlFor="techs">Tecnologias</label>
-        <Input id="techs" name="techs" required />
+        <Input id="techs" data-testid="techs" name="techs" required />
       </Block>
 
       <Group>
         <Block>
           <label htmlFor="latitude">Latitude</label>
-          <Input type="text" id="latitude" name="latitude" required />
+          <Input
+            type="text"
+            id="latitude"
+            data-testid="latitude"
+            name="latitude"
+            required
+          />
         </Block>
         <Block>
           <label htmlFor="longitude">Longitude</label>
-          <Input type="text" id="longitude" name="longitude" required />
+          <Input
+            type="text"
+            id="longitude"
+            data-testid="longitude"
+            name="longitude"
+            required
+          />
         </Block>
       </Group>
 
-      <Submit type="submit">Salvar</Submit>
+      <Submit data-testid="submit" type="submit">
+        Salvar
+      </Submit>
     </Form>
   );
 }

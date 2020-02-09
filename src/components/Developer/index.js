@@ -14,7 +14,10 @@ export default function Developer({ dev }) {
         </div>
       </header>
       <p>{dev.bio}</p>
-      <a href={`https://github.com/${dev.github_username}`}>
+      <a
+        data-testid="profile"
+        href={`https://github.com/${dev.github_username}`}
+      >
         Acessar perfil no Github
       </a>
     </Container>
