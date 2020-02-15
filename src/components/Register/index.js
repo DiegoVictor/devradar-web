@@ -17,19 +17,19 @@ export default function Register({ onSubmit }) {
   const [longitude, setLongitude] = useState('');
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      pos => {
-        const { latitude, longitude } = pos.coords;
-        setLatitude(latitude);
-        setLongitude(longitude);
-      },
-      err => {
-        throw Error(err);
-      },
-      {
-        timeut: 3000,
-      }
-    );
+    (async () => {
+      await navigator.geolocation.getCurrentPosition(
+        pos => {
+          const { latitude: lat, longitude: long } = pos.coords;
+          setLatitude(lat);
+          setLongitude(long);
+        },
+        () => {},
+        {
+          timeout: 3000,
+        }
+      );
+    })();
   }, []);
 
   const handleSubmit = useCallback(
