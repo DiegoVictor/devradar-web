@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-export default function Developer({ dev }) {
+export default function Developer({ dev, ...props }) {
   return (
-    <Container>
+    <Container {...props}>
       <header>
         <img src={dev.avatar_url} alt={dev.name} />
         <div>
