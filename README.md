@@ -23,3 +23,9 @@ Start the server in the [api](https://github.com/DiegoVictor/omnistack-10/tree/m
 ```
 $ yarn start
 ```
+
+# Tests
+```
+$ yarn test
+```
+> And `yarn coverage` to run tests with coverage
