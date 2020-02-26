@@ -16,9 +16,14 @@ export default () => {
   }, []);
 
   const handleSubmit = useCallback(
-    async data => {
-      const response = await api.post('developers', data);
-      setDevelopers([...developers, response.data]);
+    async ({ github_username, latitude, longitude, techs }) => {
+      const { data } = await api.post('developers', {
+        github_username,
+        latitude: Number(latitude),
+        longitude: Number(longitude),
+        techs,
+      });
+      setDevelopers([...developers, data]);
     },
     [developers]
   );
