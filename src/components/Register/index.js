@@ -24,10 +24,7 @@ export default function Register({ onSubmit }) {
           setLatitude(lat.toPrecision(9));
           setLongitude(long.toPrecision(9));
         },
-        () => {},
-        {
-          timeout: 3000,
-        }
+        () => {}
       );
     })();
   }, []);
