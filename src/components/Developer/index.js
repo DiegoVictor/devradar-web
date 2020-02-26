@@ -9,7 +9,7 @@ export default function Developer({ dev, ...props }) {
       <header>
         <img src={dev.avatar_url} alt={dev.name} />
         <div>
-          <strong>{dev.name}</strong>
+          <strong>{dev.name || dev.github_username}</strong>
           <span>{dev.techs.join(', ')}</span>
         </div>
       </header>
@@ -26,9 +26,17 @@ export default function Developer({ dev, ...props }) {
 
 Developer.propTypes = {
   dev: PropTypes.shape({
+    github_username: PropTypes.string.isRequired,
     avatar_url: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     techs: PropTypes.array.isRequired,
-    bio: PropTypes.string.isRequired,
-  }).isRequired,
+    bio: PropTypes.string,
+  }),
+};
+
+Developer.defaultProps = {
+  dev: {
+    name: '',
+    bio: '',
+  },
 };
