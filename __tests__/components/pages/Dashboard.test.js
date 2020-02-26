@@ -8,8 +8,8 @@ import factory from '../../utils/factories';
 import api from '~/services/api';
 
 const api_mock = new MockAdapter(api);
-const latitude = faker.address.latitude();
-const longitude = faker.address.longitude();
+const latitude = Number(faker.address.latitude());
+const longitude = Number(faker.address.longitude());
 
 global.navigator.geolocation = {
   getCurrentPosition: jest.fn(success => {

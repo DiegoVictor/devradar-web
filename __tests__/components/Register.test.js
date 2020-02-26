@@ -48,8 +48,8 @@ describe('Register component', () => {
     expect(submit).toHaveBeenCalledWith({
       github_username,
       techs: techs.join(', '),
-      latitude,
-      longitude,
+      latitude: latitude.toPrecision(9),
+      longitude: longitude.toPrecision(9),
     });
   });
 });

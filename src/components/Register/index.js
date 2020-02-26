@@ -21,8 +21,8 @@ export default function Register({ onSubmit }) {
       await navigator.geolocation.getCurrentPosition(
         pos => {
           const { latitude: lat, longitude: long } = pos.coords;
-          setLatitude(lat);
-          setLongitude(long);
+          setLatitude(lat.toPrecision(9));
+          setLongitude(long.toPrecision(9));
         },
         () => {},
         {

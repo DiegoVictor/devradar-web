@@ -17,8 +17,8 @@ factory.define(
       }
       return techs;
     },
-    latitude: faker.address.latitude,
-    longitude: faker.address.longitude,
+    latitude: () => Number(faker.address.latitude()),
+    longitude: () => Number(faker.address.longitude()),
   }
 );
 
