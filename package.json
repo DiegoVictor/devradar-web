@@ -1,6 +1,6 @@
 {
-  "name": "web",
-  "version": "0.1.0",
+  "name": "devradar",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@rocketseat/unform": "^1.6.1",
