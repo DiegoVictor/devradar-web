@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import api from '~/services/api';
 import Register from '~/components/Register';
 import Developer from '~/components/Developer';
-import api from '~/services/api';
 import { Container, Aside, Main } from './styles';
+import Layout from '~/components/Layout';
 
 export default () => {
   const [developers, setDevelopers] = useState([]);
@@ -29,22 +30,24 @@ export default () => {
   );
 
   return (
-    <Container>
-      <Aside>
-        <strong>Cadastrar</strong>
-        <Register onSubmit={handleSubmit} />
-      </Aside>
-      <Main>
-        <ul>
-          {developers.map(dev => (
-            <Developer
-              data-testid={`developer_${dev._id}`}
-              key={dev._id}
-              dev={dev}
-            />
-          ))}
-        </ul>
-      </Main>
-    </Container>
+    <Layout>
+      <Container>
+        <Aside>
+          <strong>Cadastrar</strong>
+          <Register onSubmit={handleSubmit} />
+        </Aside>
+        <Main>
+          <ul>
+            {developers.map(dev => (
+              <Developer
+                data-testid={`developer_${dev._id}`}
+                key={dev._id}
+                dev={dev}
+              />
+            ))}
+          </ul>
+        </Main>
+      </Container>
+    </Layout>
   );
 };
