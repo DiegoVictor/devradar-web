@@ -3,9 +3,9 @@ import { render, act, fireEvent } from '@testing-library/react';
 import MockAdapter from 'axios-mock-adapter';
 import faker from 'faker';
 
-import Dashboard from '~/components/pages/Dashboard';
-import factory from '../../utils/factories';
+import factory from '../../utils/factory';
 import api from '~/services/api';
+import Dashboard from '~/pages/Dashboard';
 
 const api_mock = new MockAdapter(api);
 const latitude = Number(faker.address.latitude());
@@ -43,8 +43,11 @@ describe('Dashboard page', () => {
     const developer = await factory.attrs('Developer');
     let getByTestId;
 
-    api_mock.onGet('developers').reply(200, []);
-    api_mock.onPost('developers').reply(200, developer);
+    api_mock
+      .onGet('developers')
+      .reply(200, [])
+      .onPost('developers')
+      .reply(200, developer);
 
     await act(async () => {
       const component = render(<Dashboard />);

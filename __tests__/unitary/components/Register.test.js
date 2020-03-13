@@ -1,7 +1,7 @@
 import React from 'react';
 import { act, render, fireEvent } from '@testing-library/react';
 
-import factory from '../utils/factories';
+import factory from '../../utils/factory';
 import Register from '~/components/Register';
 
 describe('Register component', () => {
@@ -25,7 +25,6 @@ describe('Register component', () => {
     let getByTestId;
     await act(async () => {
       const component = render(<Register onSubmit={submit} />);
-
       getByTestId = component.getByTestId;
     });
 
@@ -34,13 +33,11 @@ describe('Register component', () => {
         value: github_username,
       },
     });
-
     fireEvent.change(getByTestId('techs'), {
       target: {
         value: techs.join(', '),
       },
     });
-
     await act(async () => {
       fireEvent.click(getByTestId('submit'));
     });

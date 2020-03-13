@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import Developer from '~/components/Developer';
-import factory from '../utils/factories';
+import factory from '../../utils/factory';
 
 describe('Developer component', () => {
   it('should be able to show a developer data', async () => {
