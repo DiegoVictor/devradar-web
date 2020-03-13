@@ -2,13 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import '~/config/ReactotronConfig';
-import App from '~/components/pages/Dashboard/index';
-import Style from '~/styles';
+import Dashboard from '~/pages/Dashboard';
 
-ReactDOM.render(
-  <>
-    <Style />
-    <App />
-  </>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Dashboard />, document.getElementById('root'));

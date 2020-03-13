@@ -28,7 +28,7 @@
     ],
     "coverageDirectory": "__tests__/coverage",
     "collectCoverageFrom": [
-      "src/components",
+      "!src/components/Layout/*.js",
       "!src/config/*",
       "!src/services/*",
       "!src/*.js"
