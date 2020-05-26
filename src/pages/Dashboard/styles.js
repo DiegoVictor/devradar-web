@@ -1,15 +1,34 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  align-items: flex-start;
+export const Bar = styled.div`
+  align-items: center;
   display: flex;
-  flex-direction: row;
-  margin: 0px auto;
-  max-width: 1200px;
-  padding: 60px 30px;
+  justify-content: center;
+  position: fixed;
+  top: 30px;
+  width: 100%;
+  z-index: 2;
+`;
 
-  @media (max-width: 1000px) {
-    flex-direction: column;
+export const Search = styled.div`
+  align-items: center;
+  background-color: #7d49e7;
+  border-radius: 25px;
+  box-shadow: 0px 0px 3px #aaa;
+  display: flex;
+  height: 50px;
+  max-width: 400px;
+  width: 100%;
+
+  input {
+    background-color: transparent;
+    border: 0px;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 600;
+    height: 100%;
+    padding: 0px 17px;
+    width: calc(100% - 88px);
   }
 `;
 
