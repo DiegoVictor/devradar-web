@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 import Map from 'google-map-react';
 import api from '~/services/api';
-import Register from '~/components/Register';
+import DevContext from '~/contexts/Dev';
 import Developer from '~/components/Developer';
 import { Container, Aside, Main } from './styles';
 import Layout from '~/components/Layout';
@@ -10,6 +10,8 @@ import Layout from '~/components/Layout';
 export default () => {
   const [developers, setDevelopers] = useState([]);
   const [center, setCenter] = useState();
+
+  const { dev, setDev } = useContext(DevContext);
 
   useEffect(() => {
     (async () => {
@@ -42,6 +44,12 @@ export default () => {
   }, []);
 
   return (
+    <DevContext.Provider
+      value={{
+        dev,
+        setDev,
+      }}
+    >
     <Layout>
         <Map
           style={{ height: 'calc(100% - 55px)' }}
@@ -58,5 +66,6 @@ export default () => {
           ))}
         </Map>
     </Layout>
+    </DevContext.Provider>
   );
 };
