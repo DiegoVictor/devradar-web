@@ -50,7 +50,28 @@ export default () => {
         setDev,
       }}
     >
-    <Layout>
+      <Layout>
+        <Bar>
+          <Search>
+            <input
+              type="text"
+              placeholder="Search"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+            <Button
+              type="button"
+              hide={search.length === 0}
+              onClick={() => setSearch('')}
+            >
+              <MdClose size="17" />
+            </Button>
+            <Button type="button">
+              <MdSearch size="17" />
+            </Button>
+          </Search>
+        </Bar>
+
         <Map
           style={{ height: 'calc(100% - 55px)' }}
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLEMAP_API_KEY }}
@@ -65,7 +86,7 @@ export default () => {
             <Developer key={data._id} lng={lng} lat={lat} data={data} />
           ))}
         </Map>
-    </Layout>
+      </Layout>
     </DevContext.Provider>
   );
 };
