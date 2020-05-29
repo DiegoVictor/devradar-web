@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import Map from 'google-map-react';
 import api from '~/services/api';
 import DevContext from '~/contexts/Dev';
@@ -11,8 +10,7 @@ export default () => {
   const [developers, setDevelopers] = useState([]);
   const [center, setCenter] = useState();
 
-  const { dev, setDev } = useContext(DevContext);
-
+  
   useEffect(() => {
     (async () => {
       await navigator.geolocation.getCurrentPosition(
@@ -44,14 +42,7 @@ export default () => {
   }, []);
 
   return (
-    <DevContext.Provider
-      value={{
-        dev,
-        setDev,
-      }}
-    >
-      <Layout>
-        <Bar>
+    <Layout>
           <Search>
             <input
               type="text"
@@ -86,7 +77,6 @@ export default () => {
             <Developer key={data._id} lng={lng} lat={lat} data={data} />
           ))}
         </Map>
-      </Layout>
-    </DevContext.Provider>
+    </Layout>
   );
 };
