@@ -7,10 +7,28 @@ import { Container, Aside, Main } from './styles';
 import Layout from '~/components/Layout';
 
 export default () => {
+  const [dev, setDev] = useState(null);
   const [developers, setDevelopers] = useState([]);
   const [center, setCenter] = useState();
 
-  
+  useEffect(() => {
+    const query_params = new URLSearchParams(window.location.search);
+
+    (async () => {
+      switch (query_params.get('action')) {
+        default: {
+          if (localStorage.devradar) {
+            const store = JSON.parse(localStorage.devradar);
+            if (store) {
+              setDev(store);
+            }
+          }
+          break;
+        }
+      }
+    })();
+  }, []);
+
   useEffect(() => {
     (async () => {
       await navigator.geolocation.getCurrentPosition(
