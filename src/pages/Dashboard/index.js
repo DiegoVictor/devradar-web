@@ -82,7 +82,6 @@ export default () => {
         </Bar>
 
         <Map
-          style={{ height: 'calc(100% - 55px)' }}
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLEMAP_API_KEY }}
           defaultCenter={{
             lat: -23.6821604,
