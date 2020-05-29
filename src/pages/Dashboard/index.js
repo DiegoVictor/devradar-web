@@ -5,6 +5,9 @@ import DevContext from '~/contexts/Dev';
 import Developer from '~/components/Developer';
 import { Container, Aside, Main } from './styles';
 import Layout from '~/components/Layout';
+import {
+  Bar,
+} from './styles';
 
 export default () => {
   const [dev, setDev] = useState(null);
@@ -61,13 +64,7 @@ export default () => {
 
   return (
     <Layout>
-          <Search>
-            <input
-              type="text"
-              placeholder="Search"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
+      <Bar>
             <Button
               type="button"
               hide={search.length === 0}
@@ -79,7 +76,7 @@ export default () => {
               <MdSearch size="17" />
             </Button>
           </Search>
-        </Bar>
+      </Bar>
 
         <Map
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLEMAP_API_KEY }}
