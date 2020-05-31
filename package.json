@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@rocketseat/unform": "^1.6.1",
+    "@unform/core": "^2.1.0",
+    "@unform/web": "^2.1.0",
     "axios": "^0.19.1",
     "google-map-react": "^1.1.7",
     "prop-types": "^15.7.2",
@@ -11,8 +12,9 @@
     "react-dom": "^16.12.0",
     "react-icons": "^3.10.0",
     "react-scripts": "3.0.1",
+    "react-toastify": "^6.0.5",
     "styled-components": "^5.0.0",
-    "yup": "^0.28.1"
+    "yup": "^0.29.1"
   },
   "scripts": {
     "start": "react-app-rewired start",
