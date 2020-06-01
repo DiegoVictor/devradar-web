@@ -1,53 +1,80 @@
 import styled from 'styled-components';
 
-export const Container = styled.li`
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.02);
-  padding: 20px;
+export const Avatar = styled.div`
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 
-  header {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-
-    img {
-      border-radius: 50%;
-      height: 54px;
-      width: 54px;
-    }
-
-    div {
-      margin-left: 10px;
-
-      strong {
-        color: #333;
-        display: block;
-        font-size: 16px;
-      }
-
-      span {
-        color: #999;
-        font-size: 13px;
-        margin-top: 2px;
-      }
+  &:hover {
+    z-index: 2;
+    ~ div {
+      display: block;
     }
   }
 
-  p {
-    color: #666;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 10px 0px;
+  img {
+    border: 2px solid #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px #aaa;
+    height: 54px;
+    width: 54px;
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &:hover ${Avatar} {
+    z-index: 2;
+  }
+`;
+
+export const Description = styled.div`
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  color: white;
+  display: none;
+  min-width: 120px;
+  position: relative;
+  z-index: 2;
+
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 3px #aaa;
+  color: #888;
+  margin-top: 2px;
+
+  &:hover {
+    display: block;
+  }
+
+  strong {
+    display: block;
+    font-size: 12px;
+  }
+
+  span {
+    display: block;
   }
 
   a {
-    color: #8e4dff;
-    font-size: 14px;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 0px 0px 8px 8px;
+    color: #7a7a7a;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    padding: 7px 0px;
+    text-align: center;
     text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
 
-    &:hover {
-      color: #5a2ea6;
+    svg {
+      margin-right: 4px;
     }
   }
 `;

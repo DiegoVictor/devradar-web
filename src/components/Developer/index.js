@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container } from './styles';
+import { GoMarkGithub } from 'react-icons/go';
+import { Container, Avatar, Description } from './styles';
 
 export default function Developer({ dev, ...props }) {
+  const [show_description, setShowDescription] = useState(false);
+
   return (
     <Container {...props}>
-      <header>
+      <Avatar onClick={() => setShowDescription(!show_description)}>
         <img src={dev.avatar_url} alt={dev.name} />
-        <div>
+      </Avatar>
+      <Description show={show_description}>
+        <div style={{ padding: '5px' }}>
           <strong>{dev.name || dev.github_username}</strong>
+
           <span>{dev.techs.join(', ')}</span>
         </div>
-      </header>
-      <p>{dev.bio}</p>
-      <a
-        data-testid="profile"
-        href={`https://github.com/${dev.github_username}`}
-      >
-        Acessar perfil no Github
-      </a>
+
+        <a
+          href={`https://github.com/${dev.github_username}`}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <GoMarkGithub size="17" />
+          GitHub
+        </a>
+      </Description>
     </Container>
   );
 }
