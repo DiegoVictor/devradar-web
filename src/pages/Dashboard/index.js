@@ -1,21 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  useState,
+  useCallback,
+  useRef,
+} from 'react';
 import Map from 'google-map-react';
-import api from '~/services/api';
-import DevContext from '~/contexts/Dev';
+import {
+  MdClose,
+  MdSearch,
+} from 'react-icons/md';
+import api, { setAuthorization } from '~/services/api';
 import Developer from '~/components/Developer';
 import { Container, Aside, Main } from './styles';
 import Layout from '~/components/Layout';
 import {
   Bar,
+  SearchBar,
+  Clear,
+  Search,
 } from './styles';
+import { connect, disconnect, subscribe } from '~/services/socket';
 
 export default () => {
-  const [dev, setDev] = useState(null);
+  const form_ref = useRef(null);
+  const [dev, setDev] = useState({});
   const [developers, setDevelopers] = useState([]);
-  const [center, setCenter] = useState();
+  const [show_profile_form, setShowProfileForm] = useState(false);
+  const [coordinates, setCoordinates] = useState();
 
-  useEffect(() => {
-    const query_params = new URLSearchParams(window.location.search);
+  const [search, setSearch] = useState('');
 
     (async () => {
       switch (query_params.get('action')) {
@@ -25,7 +37,50 @@ export default () => {
             if (store) {
               setDev(store);
             }
+  const closeAndResetForm = useCallback(() => {
+    setShowProfileForm(false);
+
+    form_ref.current.reset(dev);
+    form_ref.current.setErrors({});
+  }, [dev]);
+
+  const handleSearch = useCallback(async () => {
+    if (show_profile_form) {
+      closeAndResetForm();
+    } else if (coordinates) {
+      const { lat: latitude, lng: longitude } = coordinates;
+      const { data } = await api.get('search', {
+        params: {
+          techs: search,
+          latitude,
+          longitude,
+        },
+      });
+
+      setDevelopers(
+        data.map(
+          ({ _id, name, github_username, techs, avatar_url, location }) => {
+            const [lng, lat] = location.coordinates;
+            return {
+              _id,
+              name,
+              techs,
+              github_username,
+              avatar_url,
+              location: {
+                lat,
+                lng,
+              },
+            };
           }
+        )
+      );
+
+      disconnect();
+      connect(latitude, longitude, search);
+    }
+  }, [closeAndResetForm, coordinates, search, show_profile_form]);
+
           break;
         }
       }
@@ -65,17 +120,26 @@ export default () => {
   return (
     <Layout>
       <Bar>
-            <Button
-              type="button"
-              hide={search.length === 0}
-              onClick={() => setSearch('')}
-            >
-              <MdClose size="17" />
-            </Button>
-            <Button type="button">
-              <MdSearch size="17" />
-            </Button>
+        <SearchBar compact={show_profile_form}>
+          <input
+            type="text"
+            placeholder="Search"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            onKeyUp={e => e.keyCode === 13 && handleSearch()}
+          />
+          <Clear
+            type="button"
+            visible={search.length > 0}
+            hidden={show_profile_form}
+            onClick={() => setSearch('')}
+          >
+            <MdClose size="17" />
+          </Clear>
+          <Search type="button" onClick={handleSearch}>
+            <MdSearch size="17" />
           </Search>
+        </SearchBar>
       </Bar>
 
         <Map

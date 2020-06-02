@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const Bar = styled.div`
   align-items: center;
@@ -10,15 +10,23 @@ export const Bar = styled.div`
   z-index: 2;
 `;
 
-export const Search = styled.div`
+export const SearchBar = styled.div`
   align-items: center;
   background-color: #7d49e7;
   border-radius: 25px;
   box-shadow: 0px 0px 3px #aaa;
   display: flex;
   height: 50px;
-  max-width: 400px;
-  width: 100%;
+  padding-right: 4px;
+  min-width: 50px;
+  transition: all 0.5s;
+
+  ${props =>
+    props.compact &&
+    css`
+      padding: 0px;
+      justify-content: center;
+    `}
 
   input {
     background-color: transparent;
@@ -28,7 +36,48 @@ export const Search = styled.div`
     font-weight: 600;
     height: 100%;
     padding: 0px 17px;
-    width: calc(100% - 88px);
+    transition: all 0.5s;
+    width: 313px;
+
+    ${props =>
+      props.compact &&
+      css`
+        padding: 0px;
+        width: 0px;
+      `}
+
+    &::-webkit-input-placeholder {
+      color: #c095ed;
+    }
+  }
+`;
+
+export const Button = styled.button`
+  background-color: #7d49e7;
+  border: 0px;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  height: 40px;
+  line-height: 10px;
+  transition: all 0.25s;
+  width: 40px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const Clear = styled(Button)`
+  margin-right: 3px;
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+`;
+
+export const Search = styled(Button)`
+  background-color: #fff;
+  color: #7d49e7;
+  line-height: 12px;
+`;
   }
 `;
 
