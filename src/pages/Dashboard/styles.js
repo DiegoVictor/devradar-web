@@ -137,35 +137,129 @@ export const Aside = styled.aside`
     width: 100%;
   }
 
-  strong {
-    color: #333;
-    display: block;
-    font-size: 20px;
-    text-align: center;
-  }
+export const Profile = styled.div`
+  align-items: center;
+  display: flex;
+  position: relative;
 
   form {
-    margin-top: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 3px #aaa;
+    margin-top: 10px;
+    opacity: ${props => (props.show ? 1 : 0)};
+    position: absolute;
+    right: 50%;
+    transform: translateX(calc(50% - 25px));
+    transition: display 0.1s, opacity 0.5s;
+    pointer-events: ${props => (props.show ? 'all' : 'none')};
+    top: 50px;
+
+    > div {
+      padding: 15px 15px;
+
+      > label:first-child {
+        margin-top: 0px;
+      }
+
+      label {
+        color: #888;
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        margin-top: 15px;
+      }
+
+      input,
+      textarea {
+        background-color: white;
+        border: 1px solid #e7e7e7;
+        border-radius: 8px;
+        min-height: 40px;
+
+        padding: 5px 10px;
+        min-width: 100%;
+
+        & + span {
+          color: red;
+        }
+      }
+    }
   }
 `;
 
-export const Main = styled.main`
-  flex: 1;
-  margin-left: 30px;
+export const Col = styled.div`
+  display: flex;
+  justify-content: space-between;
 
-  @media (max-width: 1000px) {
-    margin-left: 0px;
-    margin-top: 30px;
+  div:first-child {
+    margin-right: 5px;
   }
 
-  ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    list-style: none;
+  div:last-child {
+    margin-left: 5px;
+  }
+`;
 
-    @media (max-width: 650px) {
-      grid-template-columns: 1fr;
+export const AlignCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const Footer = styled.div`
+  border-top: 1px solid #eee;
+  background: #eee;
+  border-radius: 0px 0px 10px 10px;
+  padding: 9px 15px;
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    align-self: right;
+    display: flex;
+    justify-content: center;
+
+    button,
+    a {
+      background-color: transparent;
+      border: 0px;
+      border-radius: 20px;
+      color: #888;
+      cursor: pointer;
+      display: flex;
+      height: 35px;
+      padding: 9px 9px;
+
+      &:last-child {
+        background-color: #c5c5c5;
+        color: white;
+      }
     }
   }
+`;
+
+export const Logout = styled.button`
+  align-items: center;
+  background: transparent;
+  border: 0px;
+  color: #888;
+  display: flex;
+  padding: 0px;
+
+  svg {
+    margin-right: 5px;
+  }
+`;
+
+export const AnimatedButton = styled.button`
+  ${props =>
+    props.animate &&
+    css`
+      svg {
+        animation: ${rotate} 1s linear infinite;
+        animation-direction: reverse;
+      }
+    `}
 `;
