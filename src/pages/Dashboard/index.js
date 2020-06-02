@@ -7,6 +7,7 @@ import Map from 'google-map-react';
 import {
   MdClose,
   MdSearch,
+  MdAddCircle,
 } from 'react-icons/md';
 import api, { setAuthorization } from '~/services/api';
 import Developer from '~/components/Developer';
@@ -17,8 +18,10 @@ import {
   SearchBar,
   Clear,
   Search,
+  Link,
 } from './styles';
 import { connect, disconnect, subscribe } from '~/services/socket';
+import { login_url } from '~/config/GitHub';
 
 export default () => {
   const form_ref = useRef(null);
@@ -151,6 +154,10 @@ export default () => {
             <MdSearch size="17" />
           </Search>
         </SearchBar>
+            <Link href={`${login_url}signup`}>
+              <MdAddCircle size="17" />
+              <span>Sign Up</span>
+            </Link>
       </Bar>
 
         <Map
