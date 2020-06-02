@@ -12,7 +12,7 @@ export default createGlobalStyle`
   body {
     background-color: #E5E6F0;
     -webkit-font-smoothing: antialiased;
-    background: #e5e3df;
+    background: #e5e3df url('/fallback.png');
   }
 
   html, body, #root {
