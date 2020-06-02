@@ -4,11 +4,15 @@ import React, {
   useCallback,
   useRef,
 } from 'react';
+import { Form } from '@unform/web';
 import Map from 'google-map-react';
 import {
   MdClose,
   MdSearch,
   MdAddCircle,
+  MdCached,
+  MdClear,
+  MdExitToApp,
 } from 'react-icons/md';
 import { GoSignIn } from 'react-icons/go';
 import api, { setAuthorization } from '~/services/api';
@@ -22,7 +26,14 @@ import {
   Search,
   Link,
   SignIn,
+  Profile,
+  Col,
+  Logout,
+  Footer,
+  AlignCenter,
+  AnimatedButton,
 } from './styles';
+import Input from '~/components/Input';
 import { connect, disconnect, subscribe } from '~/services/socket';
 import { login_url } from '~/config/GitHub';
 
@@ -32,6 +43,7 @@ export default () => {
   const [developers, setDevelopers] = useState([]);
   const [show_profile_form, setShowProfileForm] = useState(false);
   const [coordinates, setCoordinates] = useState();
+  const [processing, setProcessing] = useState(false);
 
   const [search, setSearch] = useState('');
 
@@ -86,6 +98,12 @@ export default () => {
       connect(latitude, longitude, search);
     }
   }, [closeAndResetForm, coordinates, search, show_profile_form]);
+
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem('devradar');
+    setDev({});
+    closeAndResetForm();
+  }, [closeAndResetForm]);
 
           break;
         }
@@ -165,6 +183,62 @@ export default () => {
               <GoSignIn size="17" />
               <span>Sign In</span>
             </SignIn>
+        <Profile show={show_profile_form}>
+          <Form ref={form_ref} initialData={dev} onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="">Techs</label>
+              <Input name="techs" placeholder="Techs" />
+
+              <Col>
+                <div>
+                  <label>Latitude</label>
+                  <Input name="latitude" placeholder="Latitude" />
+                </div>
+
+                <div>
+                  <label>Longitute</label>
+                  <Input name="longitude" placeholder="Longitude" />
+                </div>
+              </Col>
+            </div>
+
+            <Footer>
+              {dev._id ? (
+                <>
+                  <Logout type="button" onClick={handleLogout}>
+                    <MdExitToApp size="23" />
+                    Logout
+                  </Logout>
+                  <div>
+                    <button onClick={closeAndResetForm} type="button">
+                      <MdClear size="17" />
+                    </button>
+                    <AnimatedButton
+                      animate={processing}
+                      type="submit"
+                      disabled={processing}
+                    >
+                      <MdCached size="17" />
+                    </AnimatedButton>
+                  </div>
+                </>
+              ) : (
+                <AlignCenter>
+                  <a href="/">
+                    <MdClose size="17" />
+                  </a>
+                  <AnimatedButton
+                    animate={processing}
+                    type="submit"
+                    disabled={processing}
+                  >
+                    {processing ? 'Processing' : <MdCheck size="17" />}
+                  </AnimatedButton>
+                </AlignCenter>
+              )}
+            </Footer>
+          </Form>
+        </Profile>
       </Bar>
 
         <Map
