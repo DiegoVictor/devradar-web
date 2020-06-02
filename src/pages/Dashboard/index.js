@@ -47,14 +47,17 @@ export default () => {
 
   const [search, setSearch] = useState('');
 
-    (async () => {
-      switch (query_params.get('action')) {
-        default: {
-          if (localStorage.devradar) {
-            const store = JSON.parse(localStorage.devradar);
-            if (store) {
-              setDev(store);
-            }
+  const updateStateAndStorage = useCallback(data => {
+    let developer = {};
+    if (localStorage.devradar) {
+      developer = JSON.parse(localStorage.devradar);
+    }
+    developer = Object.assign(developer, data);
+
+    localStorage.setItem('devradar', JSON.stringify(developer));
+    setDev(developer);
+  }, []);
+
   const closeAndResetForm = useCallback(() => {
     setShowProfileForm(false);
 
