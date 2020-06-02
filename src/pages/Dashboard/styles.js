@@ -78,6 +78,51 @@ export const Search = styled(Button)`
   color: #7d49e7;
   line-height: 12px;
 `;
+
+export const Link = styled.a`
+  align-items: center;
+  background-color: #33e850;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px #aaa;
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  margin-left: 5px;
+  overflow: hidden;
+  padding: 0px 11px 0px 12px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.5s;
+  width: 40px;
+
+  &:hover {
+    border-radius: 20px;
+    width: 97px;
+
+    span {
+      left: 31px;
+    }
+  }
+
+  span {
+    left: 39px;
+    position: absolute;
+    transition: all 0.5s;
+    min-width: 54px;
+  }
+`;
+
+export const SignIn = styled(Link)`
+  background: #e8df4a;
+  color: #24292e;
+
+  &:hover {
+    width: 94px;
+  }
+`;
   }
 `;
 

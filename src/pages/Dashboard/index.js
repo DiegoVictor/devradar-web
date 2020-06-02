@@ -10,6 +10,7 @@ import {
   MdSearch,
   MdAddCircle,
 } from 'react-icons/md';
+import { GoSignIn } from 'react-icons/go';
 import api, { setAuthorization } from '~/services/api';
 import Developer from '~/components/Developer';
 import { Container, Aside, Main } from './styles';
@@ -20,6 +21,7 @@ import {
   Clear,
   Search,
   Link,
+  SignIn,
 } from './styles';
 import { connect, disconnect, subscribe } from '~/services/socket';
 import { login_url } from '~/config/GitHub';
@@ -159,6 +161,10 @@ export default () => {
               <MdAddCircle size="17" />
               <span>Sign Up</span>
             </Link>
+            <SignIn href={`${login_url}signin`}>
+              <GoSignIn size="17" />
+              <span>Sign In</span>
+            </SignIn>
       </Bar>
 
         <Map
