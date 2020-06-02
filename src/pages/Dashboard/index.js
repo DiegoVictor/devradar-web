@@ -124,20 +124,49 @@ export default () => {
   }, []);
 
   useEffect(() => {
-    (async () => {
-      const { data } = await api.get('developers');
-      setDevelopers(
-        data.map(developer => {
-          const [lng, lat] = developer.location.coordinates;
-          return {
-            ...developer,
-            location: {
-              lat,
-              lng,
+    subscribe(
+      'developer',
+      ({ _id, name, avatar_url, github_username, location, techs }) => {
+        const [lng, lat] = location.coordinates;
+        const existing_developer = developers.find(
+          developer => developer._id === _id
+        );
+
+        if (!existing_developer) {
+          setDevelopers([
+            ...developers,
+            {
+              _id,
+              name,
+              techs,
+              avatar_url,
+              github_username,
+              location: {
+                lat,
+                lng,
+              },
             },
-          };
-        })
-      );
+          ]);
+        } else {
+          setDevelopers(
+            developers.map(developer => {
+              if (developer._id === existing_developer._id) {
+                return {
+                  ...developer,
+                  location: {
+                    lat,
+                    lng,
+                  },
+                };
+              }
+              return developer;
+            })
+          );
+        }
+      }
+    );
+  }, [dev, dev._id, developers]);
+
   useEffect(() => {
     if (localStorage.devradar) {
       const store = JSON.parse(localStorage.devradar);
@@ -149,6 +178,7 @@ export default () => {
 
     setLoading(false);
   }, [action.length]);
+  useEffect(() => {
     })();
   }, []);
 
