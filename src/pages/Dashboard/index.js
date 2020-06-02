@@ -119,6 +119,7 @@ export default () => {
       const store = JSON.parse(localStorage.devradar);
       if (store) {
         setDev(store);
+        setAuthorization(store.token);
       }
     }
 
