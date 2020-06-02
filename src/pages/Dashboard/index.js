@@ -108,23 +108,20 @@ export default () => {
     closeAndResetForm();
   }, [closeAndResetForm]);
 
+  const handleSubmit = useCallback(
+    async ({ techs, latitude, longitude }) => {
+      try {
+        form_ref.current.setErrors({});
+
           break;
         }
       }
-    })();
-  }, []);
+      } catch (err) {
 
-  useEffect(() => {
-    (async () => {
-      await navigator.geolocation.getCurrentPosition(
-        pos => {
-          const { latitude: lat, longitude: lng } = pos.coords;
-          setCenter({ lat, lng });
-        },
-        () => {}
-      );
-    })();
-  }, []);
+      }
+    },
+    [action, params, processing, updateStateAndStorage]
+  );
 
   useEffect(() => {
     subscribe(
