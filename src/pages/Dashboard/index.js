@@ -114,6 +114,16 @@ export default () => {
           };
         })
       );
+  useEffect(() => {
+    if (localStorage.devradar) {
+      const store = JSON.parse(localStorage.devradar);
+      if (store) {
+        setDev(store);
+      }
+    }
+
+    setLoading(false);
+  }, [action.length]);
     })();
   }, []);
 
