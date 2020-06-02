@@ -241,19 +241,25 @@ export default () => {
         </Profile>
       </Bar>
 
-        <Map
-          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLEMAP_API_KEY }}
-          defaultCenter={{
-            lat: -23.6821604,
-            lng: -46.8754915,
-          }}
-          center={center}
-          zoom={15}
-        >
-          {developers.map(({ location: { lat, lng }, ...data }) => (
-            <Developer key={data._id} lng={lng} lat={lat} data={data} />
-          ))}
-        </Map>
+      <Map
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLEMAP_API_KEY }}
+        defaultCenter={{
+          lat: parseFloat(process.env.REACT_APP_GOOGLEMAP_LAT),
+          lng: parseFloat(process.env.REACT_APP_GOOGLEMAP_LNG),
+        }}
+        center={coordinates}
+        zoom={14}
+        onChange={({ center }) => {
+          setCoordinates(center);
+          if (search) {
+            handleSearch();
+          }
+        }}
+      >
+        {developers.map(({ location: { lat, lng }, ...data }) => (
+          <Developer key={data._id} lng={lng} lat={lat} data={data} />
+        ))}
+      </Map>
     </Layout>
   );
 };
