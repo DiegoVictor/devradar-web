@@ -35,7 +35,7 @@ Developer.propTypes = {
     github_username: PropTypes.string.isRequired,
     avatar_url: PropTypes.string.isRequired,
     name: PropTypes.string,
-    techs: PropTypes.array.isRequired,
+    techs: PropTypes.arrayOf(PropTypes.string).isRequired,
   }),
 };
 
