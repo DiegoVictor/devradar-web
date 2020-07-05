@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { GoMarkGithub } from 'react-icons/go';
 import { Container, Avatar, Description } from './styles';
 
 export default function Developer({ dev, ...props }) {
-  const [show_description, setShowDescription] = useState(false);
-
   return (
     <Container {...props}>
-      <Avatar onClick={() => setShowDescription(!show_description)}>
+      <Avatar data-testid="avatar">
         <img src={dev.avatar_url} alt={dev.name} />
       </Avatar>
-      <Description show={show_description}>
+      <Description>
         <div style={{ padding: '5px' }}>
           <strong>{dev.name || dev.github_username}</strong>
 
@@ -38,13 +36,11 @@ Developer.propTypes = {
     avatar_url: PropTypes.string.isRequired,
     name: PropTypes.string,
     techs: PropTypes.array.isRequired,
-    bio: PropTypes.string,
   }),
 };
 
 Developer.defaultProps = {
   dev: {
     name: '',
-    bio: '',
   },
 };
