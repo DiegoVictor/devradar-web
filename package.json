@@ -77,6 +77,5 @@
     "faker": "^4.1.0",
     "prettier": "^1.19.1",
     "react-app-rewired": "^2.1.5",
-    "reactotron-react-js": "^3.3.7"
   }
 }
