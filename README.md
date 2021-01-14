@@ -1,6 +1,6 @@
 # About
 This web version permit to you register and see registered users.
-<img src="https://raw.githubusercontent.com/DiegoVictor/omnistack-10/master/web/screenshots/dashboard.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/dashboard.png" width="100%"/>
 
 # Install
 ```
