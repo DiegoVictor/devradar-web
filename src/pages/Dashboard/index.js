@@ -35,13 +35,13 @@ import {
 } from './styles';
 import Input from '~/components/Input';
 import { connect, disconnect, subscribe } from '~/services/socket';
-import { login_url } from '~/config/GitHub';
+import { loginUrl } from '~/config/GitHub';
 
 export default () => {
-  const form_ref = useRef(null);
+  const formRef = useRef(null);
   const [dev, setDev] = useState({});
   const [developers, setDevelopers] = useState([]);
-  const [show_profile_form, setShowProfileForm] = useState(false);
+  const [showProfileForm, setShowProfileForm] = useState(false);
   const [coordinates, setCoordinates] = useState();
   const [processing, setProcessing] = useState(false);
 
@@ -61,12 +61,12 @@ export default () => {
   const closeAndResetForm = useCallback(() => {
     setShowProfileForm(false);
 
-    form_ref.current.reset(dev);
-    form_ref.current.setErrors({});
+    formRef.current.reset(dev);
+    formRef.current.setErrors({});
   }, [dev]);
 
   const handleSearch = useCallback(async () => {
-    if (show_profile_form) {
+    if (showProfileForm) {
       closeAndResetForm();
     } else if (coordinates) {
       const { lat: latitude, lng: longitude } = coordinates;
@@ -100,7 +100,7 @@ export default () => {
       disconnect();
       connect(latitude, longitude, search);
     }
-  }, [closeAndResetForm, coordinates, search, show_profile_form]);
+  }, [closeAndResetForm, coordinates, search, showProfileForm]);
 
   const handleLogout = useCallback(() => {
     localStorage.removeItem('devradar');
@@ -111,7 +111,7 @@ export default () => {
   const handleSubmit = useCallback(
     async ({ techs, latitude, longitude }) => {
       try {
-        form_ref.current.setErrors({});
+        formRef.current.setErrors({});
 
           break;
         }
@@ -185,7 +185,7 @@ export default () => {
   return (
     <Layout>
       <Bar>
-        <SearchBar compact={show_profile_form}>
+        <SearchBar compact={showProfileForm}>
           <input
             type="text"
             placeholder="Search"
@@ -196,7 +196,7 @@ export default () => {
           <Clear
             type="button"
             visible={search.length > 0}
-            hidden={show_profile_form}
+            hidden={showProfileForm}
             onClick={() => setSearch('')}
           >
             <MdClose size="17" />
@@ -205,11 +205,11 @@ export default () => {
             <MdSearch size="17" />
           </Search>
         </SearchBar>
-            <Link href={`${login_url}signup`}>
+            <Link href={`${loginUrl}signup`}>
               <MdAddCircle size="17" />
               <span>Sign Up</span>
             </Link>
-            <SignIn href={`${login_url}signin`}>
+            <SignIn href={`${loginUrl}signin`}>
               <GoSignIn size="17" />
               <span>Sign In</span>
             </SignIn>
