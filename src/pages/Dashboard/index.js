@@ -183,7 +183,7 @@ export default () => {
   }, []);
 
   return (
-    <Layout>
+    <>
       <Bar>
         <SearchBar compact={showProfileForm}>
           <input
@@ -290,6 +290,6 @@ export default () => {
           <Developer key={data._id} lng={lng} lat={lat} data={data} />
         ))}
       </Map>
-    </Layout>
+    </>
   );
 };
