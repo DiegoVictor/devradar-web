@@ -8,7 +8,7 @@ export default function Developer({ data, ...props }) {
   return (
     <Container {...props}>
       <Avatar data-testid="avatar">
-        <img src={data.avatar_url} alt={data.name} />
+        <img src={data.avatar_url} alt={data.name || data.github_username} />
       </Avatar>
       <Description>
         <div style={{ padding: '5px' }}>
