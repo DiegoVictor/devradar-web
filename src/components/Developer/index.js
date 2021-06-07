@@ -32,6 +32,7 @@ export default function Developer({ data, ...props }) {
 
 Developer.propTypes = {
   data: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     github_username: PropTypes.string.isRequired,
     avatar_url: PropTypes.string.isRequired,
     name: PropTypes.string,
