@@ -19,6 +19,7 @@ export default function Developer({ data, ...props }) {
 
         <a
           href={`https://github.com/${data.github_username}`}
+          rel="noopener noreferrer"
           target="_blank"
           data-testid="profile"
         >
