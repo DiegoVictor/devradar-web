@@ -21,7 +21,7 @@ export default function Developer({ data, ...props }) {
           href={`https://github.com/${data.github_username}`}
           rel="noopener noreferrer"
           target="_blank"
-          data-testid="profile"
+          data-testid={`profile_${data._id}`}
         >
           <GoMarkGithub size="17" />
           GitHub
