@@ -203,18 +203,19 @@ export default () => {
             visible={search.length > 0}
             hidden={showProfileForm}
             onClick={() => setSearch('')}
+            data-testid="clear"
           >
             <MdClose size="17" />
           </Clear>
-          <Search type="button" onClick={handleSearch}>
+          <Search type="button" onClick={handleSearch} data-testid="search">
             <MdSearch size="17" />
           </Search>
         </SearchBar>
-            <Link href={`${loginUrl}signup`}>
+            <Link href={`${loginUrl}signup`} data-testid="signup">
               <MdAddCircle size="17" />
               <span>Sign Up</span>
             </Link>
-            <SignIn href={`${loginUrl}signin`}>
+            <SignIn href={`${loginUrl}signin`} data-testid="signin">
               <GoSignIn size="17" />
               <span>Sign In</span>
             </SignIn>
@@ -240,18 +241,27 @@ export default () => {
             <Footer>
               {dev._id ? (
                 <>
-                  <Logout type="button" onClick={handleLogout}>
+                  <Logout
+                    type="button"
+                    onClick={handleLogout}
+                    data-testid="logout"
+                  >
                     <MdExitToApp size="23" />
                     Logout
                   </Logout>
                   <div>
-                    <button onClick={closeAndResetForm} type="button">
+                    <button
+                      onClick={closeAndResetForm}
+                      type="button"
+                      data-testid="clear"
+                    >
                       <MdClear size="17" />
                     </button>
                     <AnimatedButton
                       animate={processing}
                       type="submit"
                       disabled={processing}
+                      data-testid="update"
                     >
                       <MdCached size="17" />
                     </AnimatedButton>
@@ -266,6 +276,7 @@ export default () => {
                     animate={processing}
                     type="submit"
                     disabled={processing}
+                    data-testid="signup-submit"
                   >
                     {processing ? 'Processing' : <MdCheck size="17" />}
                   </AnimatedButton>
