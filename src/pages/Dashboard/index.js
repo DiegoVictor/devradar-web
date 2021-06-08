@@ -179,6 +179,11 @@ export default () => {
     setLoading(false);
   }, [action.length]);
   useEffect(() => {
+    (async () => {
+      navigator.geolocation.getCurrentPosition(pos => {
+        const { latitude: lat, longitude: lng } = pos.coords;
+        setCoordinates({ lat, lng });
+      });
     })();
   }, []);
 
