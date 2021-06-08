@@ -211,6 +211,7 @@ export default () => {
             <MdSearch size="17" />
           </Search>
         </SearchBar>
+          <>
             <Link href={`${loginUrl}signup`} data-testid="signup">
               <MdAddCircle size="17" />
               <span>Sign Up</span>
@@ -219,8 +220,9 @@ export default () => {
               <GoSignIn size="17" />
               <span>Sign In</span>
             </SignIn>
-        <Profile show={show_profile_form}>
-          <Form ref={form_ref} initialData={dev} onSubmit={handleSubmit}>
+          </>
+        <Profile show={showProfileForm}>
+          <Form ref={formRef} initialData={dev} onSubmit={handleSubmit}>
             <div>
               <label htmlFor="">Techs</label>
               <Input name="techs" placeholder="Techs" />
