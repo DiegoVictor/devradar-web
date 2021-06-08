@@ -43,6 +43,7 @@ export default () => {
   const [developers, setDevelopers] = useState([]);
   const [showProfileForm, setShowProfileForm] = useState(false);
   const [coordinates, setCoordinates] = useState();
+  const [action, setAction] = useState(params.get('action') || '');
   const [processing, setProcessing] = useState(false);
 
   const [search, setSearch] = useState('');
@@ -178,6 +179,17 @@ export default () => {
 
     setLoading(false);
   }, [action.length]);
+  useEffect(() => {
+    if (action === 'signup') {
+      setShowProfileForm(true);
+
+      if (coordinates) {
+        const { lat: latitude, lng: longitude } = coordinates;
+        setDev({ latitude, longitude });
+      }
+    }
+  }, [action, coordinates]);
+
   useEffect(() => {
     (async () => {
       navigator.geolocation.getCurrentPosition(pos => {
