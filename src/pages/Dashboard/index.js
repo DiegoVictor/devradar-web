@@ -26,6 +26,7 @@ import {
   Search,
   Link,
   SignIn,
+  User,
   Profile,
   Col,
   Logout,

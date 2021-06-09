@@ -126,16 +126,23 @@ export const SignIn = styled(Link)`
   }
 `;
 
-export const Aside = styled.aside`
+export const User = styled.div`
+  align-items: center;
   background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0p 0p 14px 0px rgba(0, 0, 0, 0.02);
-  padding: 30px 20px;
-  width: 320px;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  box-shadow: 0px 0px 3px #aaa;
+  display: flex;
+  justify-content: center;
+  height: 46px;
+  margin-left: 5px;
+  overflow: hidden;
+  width: 46px;
 
-  @media (max-width: 1000px) {
+  img {
     width: 100%;
   }
+`;
 
 export const Profile = styled.div`
   align-items: center;
