@@ -39,6 +39,8 @@ import { loginUrl } from '~/config/GitHub';
 
 export default () => {
   const formRef = useRef(null);
+  const params = useMemo(() => new URLSearchParams(window.location.search), []);
+
   const [dev, setDev] = useState({});
   const [developers, setDevelopers] = useState([]);
   const [showProfileForm, setShowProfileForm] = useState(false);
