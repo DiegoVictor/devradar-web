@@ -123,6 +123,25 @@ export const SignIn = styled(Link)`
     width: 94px;
   }
 `;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
+`;
+
+export const Loading = styled.div`
+  align-items: center;
+  color: #24292e;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    animation: ${rotate} 1s linear infinite;
   }
 `;
 
