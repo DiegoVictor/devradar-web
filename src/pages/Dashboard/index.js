@@ -42,6 +42,7 @@ export default () => {
   const [dev, setDev] = useState({});
   const [developers, setDevelopers] = useState([]);
   const [showProfileForm, setShowProfileForm] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [coordinates, setCoordinates] = useState();
   const [action, setAction] = useState(params.get('action') || '');
   const [processing, setProcessing] = useState(false);
@@ -223,6 +224,7 @@ export default () => {
             <MdSearch size="17" />
           </Search>
         </SearchBar>
+        {!(action.length > 0) && !dev._id && !loading ? (
           <>
             <Link href={`${loginUrl}signup`} data-testid="signup">
               <MdAddCircle size="17" />
@@ -233,6 +235,11 @@ export default () => {
               <span>Sign In</span>
             </SignIn>
           </>
+        ) : (
+          <User onClick={() => setShowProfileForm(true)} data-testid="avatar">
+          </User>
+        )}
+
         <Profile show={showProfileForm}>
           <Form ref={formRef} initialData={dev} onSubmit={handleSubmit}>
             <div>
