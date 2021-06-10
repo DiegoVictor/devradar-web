@@ -14,6 +14,7 @@ import {
   MdClear,
   MdExitToApp,
 } from 'react-icons/md';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { GoSignIn } from 'react-icons/go';
 import api, { setAuthorization } from '~/services/api';
 import Developer from '~/components/Developer';
@@ -239,6 +240,14 @@ export default () => {
           </>
         ) : (
           <User onClick={() => setShowProfileForm(true)} data-testid="avatar">
+            {loading ? (
+              <Loading>
+                <AiOutlineLoading3Quarters color="#7d49e7" size="17" />
+              </Loading>
+            ) : (
+              <>
+              </>
+            )}
           </User>
         )}
 
