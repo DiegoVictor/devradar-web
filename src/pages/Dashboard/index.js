@@ -17,8 +17,9 @@ import {
 import { GoSignIn } from 'react-icons/go';
 import api, { setAuthorization } from '~/services/api';
 import Developer from '~/components/Developer';
-import { Container, Aside, Main } from './styles';
-import Layout from '~/components/Layout';
+import Input from '~/components/Input';
+import { connect, disconnect, subscribe } from '~/services/socket';
+import { loginUrl } from '~/config/GitHub';
 import {
   Bar,
   SearchBar,
@@ -34,9 +35,6 @@ import {
   AlignCenter,
   AnimatedButton,
 } from './styles';
-import Input from '~/components/Input';
-import { connect, disconnect, subscribe } from '~/services/socket';
-import { loginUrl } from '~/config/GitHub';
 
 export default () => {
   const formRef = useRef(null);
