@@ -28,6 +28,7 @@ import {
   Link,
   SignIn,
   User,
+  Loading,
   Profile,
   Col,
   Logout,
