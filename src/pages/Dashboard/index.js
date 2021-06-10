@@ -228,6 +228,7 @@ export default () => {
             <MdSearch size="17" />
           </Search>
         </SearchBar>
+
         {!(action.length > 0) && !dev._id && !loading ? (
           <>
             <Link href={`${loginUrl}signup`} data-testid="signup">
