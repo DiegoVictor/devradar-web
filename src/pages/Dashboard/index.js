@@ -15,6 +15,7 @@ import {
   MdExitToApp,
 } from 'react-icons/md';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { FaUserCircle } from 'react-icons/fa';
 import { GoSignIn } from 'react-icons/go';
 import api, { setAuthorization } from '~/services/api';
 import Developer from '~/components/Developer';
@@ -246,6 +247,11 @@ export default () => {
               </Loading>
             ) : (
               <>
+                {dev.avatar_url ? (
+                  <img src={dev.avatar_url} alt={dev.name} />
+                ) : (
+                  <FaUserCircle color="#c5c5c5" size="20" />
+                )}
               </>
             )}
           </User>
