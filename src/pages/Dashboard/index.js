@@ -184,6 +184,20 @@ export default () => {
 
     setLoading(false);
   }, [action.length]);
+
+  useEffect(() => {
+    if (action === 'signin') {
+      (async () => {
+        try {
+          setLoading(true);
+        } catch (err) {
+          toast.error('Oops! Looks like something goes wrong!');
+        }
+        setLoading(false);
+      })();
+    }
+  }, [action, params, updateStateAndStorage]);
+
   useEffect(() => {
     if (action === 'signup') {
       setShowProfileForm(true);
