@@ -190,6 +190,23 @@ export default () => {
       (async () => {
         try {
           setLoading(true);
+          const {
+            data: {
+              developer: {
+                _id,
+                avatar_url,
+                techs,
+                location: {
+                  coordinates: [longitude, latitude],
+                },
+              },
+              token,
+            },
+          } = await api.post(`/sessions`, {
+            code: params.get('code'),
+          });
+
+          setAuthorization(token);
         } catch (err) {
           toast.error('Oops! Looks like something goes wrong!');
         }
