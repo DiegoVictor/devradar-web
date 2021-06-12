@@ -131,6 +131,9 @@ export default () => {
           });
 
           formRef.current.setErrors(validationErrors);
+        } else {
+          setAction('');
+          toast.error('Oops! Looks like something goes wrong!');
         }
       }
     },
