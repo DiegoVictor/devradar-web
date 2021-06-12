@@ -207,6 +207,15 @@ export default () => {
           });
 
           setAuthorization(token);
+
+          updateStateAndStorage({
+            _id,
+            avatar_url,
+            techs: techs.join(', '),
+            latitude,
+            longitude,
+            token,
+          });
         } catch (err) {
           toast.error('Oops! Looks like something goes wrong!');
         }
