@@ -216,6 +216,10 @@ export default () => {
             longitude,
             token,
           });
+
+          const { history, location } = window;
+          history.pushState({}, '', location.href.replace(location.search, ''));
+          setAction('');
         } catch (err) {
           toast.error('Oops! Looks like something goes wrong!');
         }
