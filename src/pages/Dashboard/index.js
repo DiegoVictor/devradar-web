@@ -18,6 +18,8 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { FaUserCircle } from 'react-icons/fa';
 import { GoSignIn } from 'react-icons/go';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
+
 import api, { setAuthorization } from '~/services/api';
 import Developer from '~/components/Developer';
 import Input from '~/components/Input';
