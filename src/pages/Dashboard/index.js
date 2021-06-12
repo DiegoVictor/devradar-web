@@ -136,11 +136,21 @@ export default () => {
                   .required('Longitude is required'),
                 techs: Yup.string().required('Techs ares required'),
               });
+
               const code = params.get('code');
               if (!code) {
                 toast.error("Missing GitHub's code");
                 break;
               }
+
+              await schema.validate(
+                { techs, latitude, longitude },
+                {
+                  abortEarly: false,
+                }
+              );
+
+              setProcessing(true);
             default: {
               break;
             }
