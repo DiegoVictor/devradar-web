@@ -151,6 +151,17 @@ export default () => {
               );
 
               setProcessing(true);
+              const {
+                data: {
+                  developer: { _id, avatar_url },
+                  token,
+                },
+              } = await api.post('/developers', {
+                code,
+                techs,
+                latitude,
+                longitude,
+              });
             default: {
               break;
             }
