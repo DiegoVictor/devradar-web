@@ -125,8 +125,14 @@ export default () => {
         formRef.current.setErrors({});
 
         if (!processing) {
-          break;
-        }
+          switch (action) {
+            case 'signup': {
+              break;
+            }
+            default: {
+              break;
+            }
+          }
         }
       } catch (err) {
         const validationErrors = {};
