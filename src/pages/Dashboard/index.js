@@ -3,6 +3,7 @@ import React, {
   useState,
   useCallback,
   useRef,
+  useMemo,
 } from 'react';
 import { Form } from '@unform/web';
 import Map from 'google-map-react';
