@@ -136,8 +136,11 @@ export default () => {
                   .required('Longitude is required'),
                 techs: Yup.string().required('Techs ares required'),
               });
-              break;
-            }
+              const code = params.get('code');
+              if (!code) {
+                toast.error("Missing GitHub's code");
+                break;
+              }
             default: {
               break;
             }
