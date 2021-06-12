@@ -127,6 +127,15 @@ export default () => {
         if (!processing) {
           switch (action) {
             case 'signup': {
+              const schema = Yup.object().shape({
+                latitude: Yup.number()
+                  .typeError('Must be number')
+                  .required('Latitude is required'),
+                longitude: Yup.number()
+                  .typeError('Must be number')
+                  .required('Longitude is required'),
+                techs: Yup.string().required('Techs ares required'),
+              });
               break;
             }
             default: {
