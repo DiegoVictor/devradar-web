@@ -162,6 +162,15 @@ export default () => {
                 latitude,
                 longitude,
               });
+
+              updateStateAndStorage({
+                _id,
+                avatar_url,
+                latitude,
+                longitude,
+                techs,
+                token,
+              });
             default: {
               break;
             }
