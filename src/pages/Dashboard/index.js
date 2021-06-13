@@ -199,6 +199,23 @@ export default () => {
                 }
               );
 
+              setProcessing(true);
+              await api.put('/developers', {
+                techs,
+                latitude,
+                longitude,
+              });
+
+              updateStateAndStorage({
+                latitude,
+                longitude,
+                techs,
+              });
+
+              setTimeout(() => {
+                toast('Your profile was updated successfully!');
+                setProcessing(false);
+              }, 1000);
               break;
             }
           }
