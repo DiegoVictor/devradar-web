@@ -186,6 +186,19 @@ export default () => {
             }
 
             default: {
+              const schema = Yup.object().shape({
+                latitude: Yup.number().typeError('Must be number'),
+                longitude: Yup.number().typeError('Must be number'),
+                techs: Yup.string(),
+              });
+
+              await schema.validate(
+                { techs, latitude, longitude },
+                {
+                  abortEarly: false,
+                }
+              );
+
               break;
             }
           }
