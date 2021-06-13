@@ -171,6 +171,20 @@ export default () => {
                 techs,
                 token,
               });
+
+              toast.success('Welcome to DevRadar!');
+              setShowProfileForm(false);
+
+              const { history, location } = window;
+              history.pushState(
+                {},
+                '',
+                location.href.replace(location.search, '')
+              );
+              setProcessing(false);
+              break;
+            }
+
             default: {
               break;
             }
