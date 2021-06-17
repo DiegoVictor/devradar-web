@@ -769,7 +769,8 @@ describe('Dashboard page', () => {
     let getByAltText;
     let getByText;
     let getByTestId;
-    await act(() => {
+
+    act(() => {
       const component = render(<Dashboard />);
       getByAltText = component.getByAltText;
       getByText = component.getByText;
