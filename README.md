@@ -27,7 +27,7 @@ This web version allows users to register yourself, look for another users by te
 
 # Screenshots
 Click to expand.<br>
-<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/1590718526695.gif" width="98.4%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/animation.gif" width="98.4%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/search.png" width="49%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/signup.png" width="49%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/processing.png" width="49%"/>
