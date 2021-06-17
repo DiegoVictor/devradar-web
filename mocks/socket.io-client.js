@@ -23,6 +23,7 @@ export const socket = {
 };
 
 export default (url, options) => {
+  socket.connected = true;
   socket.url = url;
   socket.options = options;
   return socket;
