@@ -9,7 +9,7 @@
 [![airbnb-style](https://flat.badgen.net/badge/style-guide/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 [![jest](https://img.shields.io/badge/jest-24.9.0-brightgreen?style=flat-square&logo=jest)](https://jestjs.io/)
 [![coverage](https://img.shields.io/codecov/c/gh/DiegoVictor/devradar-web?logo=codecov&style=flat-square)](https://codecov.io/gh/DiegoVictor/devradar-web)
-[![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/DiegoVictor/devradar-web/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/DiegoVictor/devradar-web/blob/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 This web version allows users to register yourself, look for another users by technologies and see their GitHub profile information. All the resources used by this application comes from its [`API`](https://github.com/DiegoVictor/devradar-api).
@@ -27,13 +27,13 @@ This web version allows users to register yourself, look for another users by te
 
 # Screenshots
 Click to expand.<br>
-<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/animation.gif" width="98.4%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/search.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/signup.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/processing.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/signed.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/search-signed.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/master/screenshots/edit.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/main/screenshots/animation.gif" width="98.4%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/main/screenshots/search.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/main/screenshots/signup.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/main/screenshots/processing.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/main/screenshots/signed.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/main/screenshots/search-signed.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/devradar-web/main/screenshots/edit.png" width="49%"/>
 
 # Installing
 Easy peasy lemon squeezy:
