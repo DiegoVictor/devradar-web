@@ -40,6 +40,9 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
+    "@faker-js/faker": "^8.0.2",
     "@testing-library/jest-dom": "^5.1.0",
     "@testing-library/react": "^10.4.3",
     "@testing-library/user-event": "^7.1.2",
