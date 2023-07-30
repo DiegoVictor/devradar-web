@@ -39,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "@faker-js/faker": "^6.3.1",
+    "@babel/eslint-parser": "^7.22.9",
     "@testing-library/jest-dom": "^5.1.0",
     "@testing-library/react": "^10.4.3",
     "@testing-library/user-event": "^7.1.2",
