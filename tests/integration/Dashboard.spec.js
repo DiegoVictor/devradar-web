@@ -28,6 +28,37 @@ jest.mock('google-map-react', () => {
   };
 });
 
+jest.mock('react-icons/ai', () => {
+  return {
+    AiOutlineLoading3Quarters: () => <div />,
+  };
+});
+
+jest.mock('react-icons/fa', () => {
+  return {
+    FaUserCircle: () => <div />,
+  };
+});
+
+jest.mock('react-icons/go', () => {
+  return {
+    GoSignIn: () => <div />,
+    GoMarkGithub: () => <div />,
+  };
+});
+
+jest.mock('react-icons/md', () => {
+  return {
+    MdClose: () => <div />,
+    MdSearch: () => <div />,
+    MdAddCircle: () => <div />,
+    MdCached: () => <div />,
+    MdClear: () => <div />,
+    MdExitToApp: () => <div />,
+    MdCheck: () => <div />,
+  };
+});
+
 describe('Dashboard page', () => {
   const apiMock = new MockAdapter(api);
   const url = `https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_URL}?action=`;
