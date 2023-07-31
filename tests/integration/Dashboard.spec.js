@@ -3,7 +3,7 @@
 import React from 'react';
 import { render, act, fireEvent } from '@testing-library/react';
 import MockAdapter from 'axios-mock-adapter';
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 import { toast } from 'react-toastify';
 
 import factory from '../utils/factory';
