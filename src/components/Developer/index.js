@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { GoMarkGithub } from 'react-icons/go';
 import { Container, Avatar, Description } from './styles';
 
-export default function Developer({ data, ...props }) {
+export function Developer({ data, ...props }) {
   return (
     <Container {...props}>
       <Avatar data-testid="avatar">

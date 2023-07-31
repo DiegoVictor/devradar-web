@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 import factory from '../utils/factory';
 import api from '~/services/api';
-import Dashboard from '~/pages/Dashboard';
+import { Dashboard } from '~/pages/Dashboard';
 import {
   connect,
   disconnect,

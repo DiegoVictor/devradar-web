@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Developer from '~/components/Developer';
+import { Developer } from '~/components/Developer';
 import factory from '../utils/factory';
 
 describe('Developer component', () => {

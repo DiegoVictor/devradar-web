@@ -23,7 +23,7 @@ import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 
 import api, { setAuthorization } from '~/services/api';
-import Developer from '~/components/Developer';
+import { Developer } from '~/components/Developer';
 import Input from '~/components/Input';
 import { connect, disconnect, subscribe } from '~/services/socket';
 import { loginUrl } from '~/config/GitHub';
@@ -44,7 +44,7 @@ import {
   AnimatedButton,
 } from './styles';
 
-export default () => {
+export function Dashboard() {
   const formRef = useRef(null);
   const params = useMemo(() => new URLSearchParams(window.location.search), []);
 
