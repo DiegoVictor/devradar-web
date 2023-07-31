@@ -22,7 +22,7 @@ export const SearchBar = styled.div`
   transition: all 0.5s;
 
   ${props =>
-    props.compact &&
+    props.$compact &&
     css`
       padding: 0px;
       justify-content: center;
@@ -40,7 +40,7 @@ export const SearchBar = styled.div`
     width: 313px;
 
     ${props =>
-      props.compact &&
+      props.$compact &&
       css`
         padding: 0px;
         width: 0px;
@@ -70,7 +70,7 @@ export const Button = styled.button`
 
 export const Clear = styled(Button)`
   margin-right: 3px;
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  visibility: ${props => (props.$visible ? 'visible' : 'hidden')};
 `;
 
 export const Search = styled(Button)`
@@ -173,12 +173,12 @@ export const Profile = styled.div`
     border-radius: 8px;
     box-shadow: 0px 0px 3px #aaa;
     margin-top: 10px;
-    opacity: ${props => (props.show ? 1 : 0)};
+    opacity: ${props => (props.$show ? 1 : 0)};
     position: absolute;
     right: 50%;
     transform: translateX(calc(50% - 25px));
     transition: display 0.1s, opacity 0.5s;
-    pointer-events: ${props => (props.show ? 'all' : 'none')};
+    pointer-events: ${props => (props.$show ? 'all' : 'none')};
     top: 50px;
 
     > div {
@@ -281,7 +281,7 @@ export const Logout = styled.button`
 
 export const AnimatedButton = styled.button`
   ${props =>
-    props.animate &&
+    props.$animate &&
     css`
       svg {
         animation: ${rotate} 1s linear infinite;

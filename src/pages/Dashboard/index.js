@@ -359,7 +359,7 @@ export function Dashboard() {
   return (
     <>
       <Bar>
-        <SearchBar compact={showProfileForm}>
+        <SearchBar $compact={showProfileForm}>
           <input
             type="text"
             placeholder="Search"
@@ -369,7 +369,7 @@ export function Dashboard() {
           />
           <Clear
             type="button"
-            visible={search.length > 0}
+            $visible={search.length > 0}
             hidden={showProfileForm}
             onClick={() => setSearch('')}
             data-testid="clear"
@@ -410,7 +410,7 @@ export function Dashboard() {
           </User>
         )}
 
-        <Profile show={showProfileForm}>
+        <Profile $show={showProfileForm}>
           <Form ref={formRef} initialData={dev} onSubmit={handleSubmit}>
             <div>
               <label htmlFor="">Techs</label>
@@ -449,7 +449,7 @@ export function Dashboard() {
                       <MdClear size="17" />
                     </button>
                     <AnimatedButton
-                      animate={processing}
+                      $animate={processing}
                       type="submit"
                       disabled={processing}
                       data-testid="update"
@@ -464,7 +464,7 @@ export function Dashboard() {
                     <MdClose size="17" />
                   </a>
                   <AnimatedButton
-                    animate={processing}
+                    $animate={processing}
                     type="submit"
                     disabled={processing}
                     data-testid="signup-submit"
@@ -499,4 +499,4 @@ export function Dashboard() {
       </Map>
     </>
   );
-};
+}
