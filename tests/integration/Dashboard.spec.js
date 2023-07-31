@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { render, act, fireEvent } from '@testing-library/react';
 import MockAdapter from 'axios-mock-adapter';
@@ -20,7 +18,6 @@ jest.mock('react-toastify');
 jest.mock('google-map-react', () => {
   return {
     __esModule: true,
-    // eslint-disable-next-line react/prop-types
     default: ({ children, onChange }) => {
       return (
         <div data-testid="map" onClick={e => onChange(e)}>
