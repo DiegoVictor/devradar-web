@@ -68,8 +68,8 @@ describe('Dashboard page', () => {
   });
 
   it('should be able to click on sign in and sign up button', async () => {
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -88,9 +88,9 @@ describe('Dashboard page', () => {
   });
 
   it('should be able to update developer', async () => {
-    const token = faker.random.alphaNumeric(32);
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const token = faker.string.alphanumeric(32);
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -171,9 +171,9 @@ describe('Dashboard page', () => {
 
   it('should be able to logout', async () => {
     const developer = await factory.attrs('Developer');
-    const token = faker.random.alphaNumeric(32);
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const token = faker.string.alphanumeric(32);
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -213,9 +213,9 @@ describe('Dashboard page', () => {
 
   it('should be able to signup', async () => {
     const { _id, avatar_url } = await factory.attrs('Developer');
-    const token = faker.random.alphaNumeric(32);
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const token = faker.string.alphanumeric(32);
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -236,7 +236,7 @@ describe('Dashboard page', () => {
         if (param === 'action') {
           return 'signup';
         }
-        return faker.random.alphaNumeric(20);
+        return faker.string.alphanumeric(20);
       };
     };
 
@@ -249,7 +249,7 @@ describe('Dashboard page', () => {
 
     const { getByTestId, getByPlaceholderText } = render(<Dashboard />);
 
-    const techs = faker.random.word();
+    const techs = faker.lorem.word();
     fireEvent.change(getByPlaceholderText('Techs'), {
       target: {
         value: techs,
@@ -276,7 +276,7 @@ describe('Dashboard page', () => {
 
   it('should not be able to signup with invalid data', async () => {
     const { _id, avatar_url } = await factory.attrs('Developer');
-    const token = faker.random.alphaNumeric(32);
+    const token = faker.string.alphanumeric(32);
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -294,7 +294,7 @@ describe('Dashboard page', () => {
         if (param === 'action') {
           return 'signup';
         }
-        return faker.random.alphaNumeric(20);
+        return faker.string.alphanumeric(20);
       };
     };
 
@@ -319,8 +319,8 @@ describe('Dashboard page', () => {
   });
 
   it('should not be able to signup with network error', async () => {
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -342,7 +342,7 @@ describe('Dashboard page', () => {
         if (param === 'action') {
           return 'signup';
         }
-        return faker.random.alphaNumeric(20);
+        return faker.string.alphanumeric(20);
       };
     };
 
@@ -352,7 +352,7 @@ describe('Dashboard page', () => {
 
     const { getByTestId, getByPlaceholderText } = render(<Dashboard />);
 
-    const techs = faker.random.word();
+    const techs = faker.lorem.word();
     fireEvent.change(getByPlaceholderText('Techs'), {
       target: {
         value: techs,
@@ -372,8 +372,8 @@ describe('Dashboard page', () => {
   });
 
   it('should not be able to signup without github code', async () => {
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -415,16 +415,16 @@ describe('Dashboard page', () => {
 
   it('should be able to signin', async () => {
     const { _id, avatar_url, techs } = await factory.attrs('Developer');
-    const token = faker.random.alphaNumeric(20);
-    const latitude = faker.address.latitude();
-    const longitude = faker.address.longitude();
+    const token = faker.string.alphanumeric(20);
+    const latitude = faker.location.latitude();
+    const longitude = faker.location.longitude();
 
     global.URLSearchParams = function URLSearchParams() {
       this.get = param => {
         if (param === 'action') {
           return 'signin';
         }
-        return faker.random.alphaNumeric(20);
+        return faker.string.alphanumeric(20);
       };
     };
 
@@ -468,7 +468,7 @@ describe('Dashboard page', () => {
         if (param === 'action') {
           return 'signin';
         }
-        return faker.random.alphaNumeric(20);
+        return faker.string.alphanumeric(20);
       };
     };
 
@@ -493,8 +493,8 @@ describe('Dashboard page', () => {
 
   it('should be able to search', async () => {
     const developers = await factory.attrsMany('Developer', 3);
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -525,7 +525,7 @@ describe('Dashboard page', () => {
       getByTestId,
     } = render(<Dashboard />);
 
-    const search = faker.random.word();
+    const search = faker.lorem.word();
     fireEvent.change(getByPlaceholderText('Search'), {
       target: {
         value: search,
@@ -568,8 +568,8 @@ describe('Dashboard page', () => {
 
   it('should be able to search after expand search bar', async () => {
     const developer = await factory.attrs('Developer');
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -595,7 +595,7 @@ describe('Dashboard page', () => {
         if (param === 'action') {
           return 'signup';
         }
-        return faker.random.alphaNumeric(20);
+        return faker.string.alphanumeric(20);
       };
     };
 
@@ -610,7 +610,7 @@ describe('Dashboard page', () => {
       fireEvent.click(getByTestId('search'));
     });
 
-    const search = faker.random.word();
+    const search = faker.lorem.word();
     fireEvent.change(getByPlaceholderText('Search'), {
       target: {
         value: search,
@@ -651,8 +651,8 @@ describe('Dashboard page', () => {
 
   it('should be able to search after change map center position', async () => {
     const developer = await factory.attrs('Developer');
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -666,7 +666,7 @@ describe('Dashboard page', () => {
 
     apiMock.reset();
 
-    const search = faker.random.word();
+    const search = faker.lorem.word();
     apiMock
       .onGet('/search', {
         params: {
@@ -731,8 +731,8 @@ describe('Dashboard page', () => {
 
   it('should be able to clear the search', async () => {
     const developer = await factory.attrs('Developer');
-    const latitude = Number(faker.address.latitude());
-    const longitude = Number(faker.address.longitude());
+    const latitude = Number(faker.location.latitude());
+    const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
       getCurrentPosition: jest.fn(success => {
         success({
@@ -763,7 +763,7 @@ describe('Dashboard page', () => {
       <Dashboard />
     );
 
-    const search = faker.random.word();
+    const search = faker.lorem.word();
     fireEvent.change(getByPlaceholderText('Search'), {
       target: {
         value: search,
@@ -841,7 +841,7 @@ describe('Dashboard page', () => {
       getByPlaceholderText,
     } = render(<Dashboard />);
 
-    const search = faker.random.word();
+    const search = faker.lorem.word();
     fireEvent.change(getByPlaceholderText('Search'), {
       target: {
         value: search,
