@@ -17,6 +17,4 @@
       - "./codecov -t $CODECOV_TOKEN"
     setup_commands:
       - "apt-get update && apt-get -y install curl"
-    cached_dirs:
-      - "/buddy/devradar-web/node_modules"
     shell: "BASH"
