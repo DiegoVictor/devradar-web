@@ -20,7 +20,7 @@
     execute_commands:
       - "curl -Os https://uploader.codecov.io/latest/linux/codecov"
       - "chmod +x codecov"
-      - "./codecov -t $CODECOV_TOKEN -s tests/coverage"
+      - "./codecov -s /buddy/devradar-web/tests/coverage"
     setup_commands:
       - "apt-get update && apt-get -y install curl"
     shell: "BASH"
