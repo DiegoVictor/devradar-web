@@ -4,11 +4,9 @@ import { render } from '@testing-library/react';
 import { Developer } from '../../src/components/Developer';
 import factory from '../utils/factory';
 
-jest.mock('react-icons/go', () => {
-  return {
-    GoMarkGithub: () => <div />
-  }
-});
+jest.mock('react-icons/fa', () => ({
+  FaGithub: () => <div />,
+}));
 
 describe('Developer component', () => {
   it('should be able to show a developer data', async () => {

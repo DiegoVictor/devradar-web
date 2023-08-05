@@ -34,18 +34,14 @@ jest.mock('react-icons/ai', () => {
   };
 });
 
-jest.mock('react-icons/fa', () => {
-  return {
-    FaUserCircle: () => <div />,
-  };
-});
+jest.mock('react-icons/fa', () => ({
+  FaUserCircle: () => <div />,
+  FaGithub: () => <div />,
+}));
 
-jest.mock('react-icons/go', () => {
-  return {
-    GoSignIn: () => <div />,
-    GoMarkGithub: () => <div />,
-  };
-});
+jest.mock('react-icons/go', () => ({
+  GoSignIn: () => <div />,
+}));
 
 jest.mock('react-icons/md', () => {
   return {

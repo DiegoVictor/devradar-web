@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { GoMarkGithub } from 'react-icons/go';
+import { FaGithub } from 'react-icons/fa';
 import { Container, Avatar, Description } from './styles';
 
 export function Developer({ data, ...props }) {
@@ -23,7 +23,7 @@ export function Developer({ data, ...props }) {
           target="_blank"
           data-testid={`profile_${data._id}`}
         >
-          <GoMarkGithub size="17" />
+          <FaGithub size="17" />
           GitHub
         </a>
       </Description>
