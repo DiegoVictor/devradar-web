@@ -49,8 +49,6 @@
     "@types/jest": "^29.5.3",
     "axios-mock-adapter": "^1.17.0",
     "babel-jest": "^29.6.2",
-    "babel-plugin-root-import": "^6.6.0",
-    "customize-cra": "^1.0.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-import": "^2.20.0",
