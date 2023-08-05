@@ -5,8 +5,8 @@ import { faker } from '@faker-js/faker';
 import { toast } from 'react-toastify';
 
 import factory from '../utils/factory';
-import api from '~/services/api';
-import { Dashboard } from '~/pages/Dashboard';
+import api from '../../src/services/api';
+import { Dashboard } from '../../src/pages/Dashboard';
 import {
   connect,
   disconnect,

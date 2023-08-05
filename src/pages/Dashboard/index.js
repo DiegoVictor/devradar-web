@@ -22,11 +22,11 @@ import { GoSignIn } from 'react-icons/go';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 
-import api, { setAuthorization } from '~/services/api';
-import { Developer } from '~/components/Developer';
-import Input from '~/components/Input';
-import { connect, disconnect, subscribe } from '~/services/socket';
-import { loginUrl } from '~/config/GitHub';
+import api, { setAuthorization } from '../../services/api';
+import { Developer } from '../../components/Developer';
+import Input from '../../components/Input';
+import { connect, disconnect, subscribe } from '../../services/socket';
+import { loginUrl } from '../../config/GitHub';
 import {
   Bar,
   SearchBar,
