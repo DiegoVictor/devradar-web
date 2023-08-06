@@ -58,7 +58,13 @@ export function Dashboard() {
 
   const [search, setSearch] = useState('');
 
-  const updateStateAndStorage = useCallback(data => {
+  const avatarUrl = dev.avatar_url ? (
+    <img src={dev.avatar_url} alt={dev.name} />
+  ) : (
+    <FaUserCircle color="#c5c5c5" size="20" />
+  );
+
+  const updateStateAndStorage = useCallback((data) => {
     let developer = {};
     if (localStorage.devradar) {
       developer = JSON.parse(localStorage.devradar);
@@ -399,13 +405,7 @@ export function Dashboard() {
                 <AiOutlineLoading3Quarters color="#7d49e7" size="17" />
               </Loading>
             ) : (
-              <>
-                {dev.avatar_url ? (
-                  <img src={dev.avatar_url} alt={dev.name} />
-                ) : (
-                  <FaUserCircle color="#c5c5c5" size="20" />
-                )}
-              </>
+              avatarUrl
             )}
           </User>
         )}
