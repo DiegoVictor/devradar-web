@@ -15,24 +15,19 @@ import {
 } from '../../mocks/socket.io-client';
 
 jest.mock('react-toastify');
-jest.mock('google-map-react', () => {
-  return {
-    __esModule: true,
-    default: ({ children, onChange }) => {
-      return (
-        <div data-testid="map" onClick={e => onChange(e)}>
-          {children}
-        </div>
-      );
-    },
-  };
-});
+jest.mock('google-map-react', () => ({
+  __esModule: true,
+  default: ({ children, onChange }) => (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <div data-testid="map" onClick={(e) => onChange(e)}>
+      {children}
+    </div>
+  ),
+}));
 
-jest.mock('react-icons/ai', () => {
-  return {
-    AiOutlineLoading3Quarters: () => <div />,
-  };
-});
+jest.mock('react-icons/ai', () => ({
+  AiOutlineLoading3Quarters: () => <div />,
+}));
 
 jest.mock('react-icons/fa', () => ({
   FaUserCircle: () => <div />,
@@ -43,17 +38,15 @@ jest.mock('react-icons/go', () => ({
   GoSignIn: () => <div />,
 }));
 
-jest.mock('react-icons/md', () => {
-  return {
-    MdClose: () => <div />,
-    MdSearch: () => <div />,
-    MdAddCircle: () => <div />,
-    MdCached: () => <div />,
-    MdClear: () => <div />,
-    MdExitToApp: () => <div />,
-    MdCheck: () => <div />,
-  };
-});
+jest.mock('react-icons/md', () => ({
+  MdClose: () => <div />,
+  MdSearch: () => <div />,
+  MdAddCircle: () => <div />,
+  MdCached: () => <div />,
+  MdClear: () => <div />,
+  MdExitToApp: () => <div />,
+  MdCheck: () => <div />,
+}));
 
 describe('Dashboard page', () => {
   const apiMock = new MockAdapter(api);
@@ -67,7 +60,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -88,7 +81,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -171,7 +164,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -213,7 +206,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -228,7 +221,7 @@ describe('Dashboard page', () => {
 
     global.history.pushState = pushState;
     global.URLSearchParams = function URLSearchParams() {
-      this.get = param => {
+      this.get = (param) => {
         if (param === 'action') {
           return 'signup';
         }
@@ -274,7 +267,7 @@ describe('Dashboard page', () => {
     const { _id, avatar_url } = await factory.attrs('Developer');
     const token = faker.string.alphanumeric(32);
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {},
         });
@@ -286,7 +279,7 @@ describe('Dashboard page', () => {
 
     global.history.pushState = pushState;
     global.URLSearchParams = function URLSearchParams() {
-      this.get = param => {
+      this.get = (param) => {
         if (param === 'action') {
           return 'signup';
         }
@@ -318,7 +311,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -334,7 +327,7 @@ describe('Dashboard page', () => {
 
     global.history.pushState = pushState;
     global.URLSearchParams = function URLSearchParams() {
-      this.get = param => {
+      this.get = (param) => {
         if (param === 'action') {
           return 'signup';
         }
@@ -371,7 +364,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -387,7 +380,7 @@ describe('Dashboard page', () => {
 
     global.history.pushState = pushState;
     global.URLSearchParams = function URLSearchParams() {
-      this.get = param => {
+      this.get = (param) => {
         if (param === 'action') {
           return 'signup';
         }
@@ -416,7 +409,7 @@ describe('Dashboard page', () => {
     const longitude = faker.location.longitude();
 
     global.URLSearchParams = function URLSearchParams() {
-      this.get = param => {
+      this.get = (param) => {
         if (param === 'action') {
           return 'signin';
         }
@@ -460,7 +453,7 @@ describe('Dashboard page', () => {
 
   it('should not be able to signin with network error', async () => {
     global.URLSearchParams = function URLSearchParams() {
-      this.get = param => {
+      this.get = (param) => {
         if (param === 'action') {
           return 'signin';
         }
@@ -492,7 +485,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -504,7 +497,7 @@ describe('Dashboard page', () => {
 
     apiMock.onGet('/search').reply(
       200,
-      developers.map(developer => ({
+      developers.map((developer) => ({
         ...developer,
         location: {
           coordinates: [developer.longitude, developer.latitude],
@@ -514,12 +507,8 @@ describe('Dashboard page', () => {
 
     connect.mockClear();
 
-    const {
-      getByPlaceholderText,
-      getByAltText,
-      getByText,
-      getByTestId,
-    } = render(<Dashboard />);
+    const { getByPlaceholderText, getByAltText, getByText, getByTestId } =
+      render(<Dashboard />);
 
     const search = faker.lorem.word();
     fireEvent.change(getByPlaceholderText('Search'), {
@@ -548,7 +537,7 @@ describe('Dashboard page', () => {
       techs: search,
     });
 
-    developers.forEach(developer => {
+    developers.forEach((developer) => {
       expect(getByAltText(developer.name)).toHaveProperty(
         'src',
         developer.avatar_url
@@ -567,7 +556,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -587,7 +576,7 @@ describe('Dashboard page', () => {
     ]);
 
     global.URLSearchParams = function URLSearchParams() {
-      this.get = param => {
+      this.get = (param) => {
         if (param === 'action') {
           return 'signup';
         }
@@ -595,12 +584,8 @@ describe('Dashboard page', () => {
       };
     };
 
-    const {
-      getByPlaceholderText,
-      getByAltText,
-      getByText,
-      getByTestId,
-    } = render(<Dashboard />);
+    const { getByPlaceholderText, getByAltText, getByText, getByTestId } =
+      render(<Dashboard />);
 
     await act(async () => {
       fireEvent.click(getByTestId('search'));
@@ -650,7 +635,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -681,17 +666,11 @@ describe('Dashboard page', () => {
       ]);
 
     global.URLSearchParams = function URLSearchParams() {
-      this.get = () => {
-        return '';
-      };
+      this.get = () => '';
     };
 
-    const {
-      getByPlaceholderText,
-      getByAltText,
-      getByText,
-      getByTestId,
-    } = render(<Dashboard />);
+    const { getByPlaceholderText, getByAltText, getByText, getByTestId } =
+      render(<Dashboard />);
 
     fireEvent.change(getByPlaceholderText('Search'), {
       target: {
@@ -730,7 +709,7 @@ describe('Dashboard page', () => {
     const latitude = Number(faker.location.latitude());
     const longitude = Number(faker.location.longitude());
     global.navigator.geolocation = {
-      getCurrentPosition: jest.fn(success => {
+      getCurrentPosition: jest.fn((success) => {
         success({
           coords: {
             latitude,
@@ -741,9 +720,7 @@ describe('Dashboard page', () => {
     };
 
     global.URLSearchParams = function URLSearchParams() {
-      this.get = () => {
-        return '';
-      };
+      this.get = () => '';
     };
 
     apiMock.onGet('/search').reply(200, [
@@ -822,7 +799,7 @@ describe('Dashboard page', () => {
 
     apiMock.onGet('/search').reply(
       200,
-      developers.map(dev => ({
+      developers.map((dev) => ({
         ...dev,
         location: {
           coordinates: [dev.longitude, dev.latitude],
@@ -830,12 +807,8 @@ describe('Dashboard page', () => {
       }))
     );
 
-    const {
-      getByAltText,
-      getByText,
-      getByTestId,
-      getByPlaceholderText,
-    } = render(<Dashboard />);
+    const { getByAltText, getByText, getByTestId, getByPlaceholderText } =
+      render(<Dashboard />);
 
     const search = faker.lorem.word();
     fireEvent.change(getByPlaceholderText('Search'), {
@@ -850,7 +823,7 @@ describe('Dashboard page', () => {
       });
     });
 
-    developers.forEach(developer => {
+    developers.forEach((developer) => {
       expect(getByAltText(developer.name)).toHaveProperty(
         'src',
         developer.avatar_url

@@ -229,7 +229,7 @@ export function Dashboard() {
       } catch (err) {
         const validationErrors = {};
         if (err instanceof Yup.ValidationError) {
-          err.inner.forEach(error => {
+          err.inner.forEach((error) => {
             validationErrors[error.path] = error.message;
           });
 
@@ -249,7 +249,7 @@ export function Dashboard() {
       ({ _id, name, avatar_url, github_username, location, techs }) => {
         const [lng, lat] = location.coordinates;
         const existing_developer = developers.find(
-          developer => developer._id === _id
+          (developer) => developer._id === _id
         );
 
         if (!existing_developer) {
@@ -269,7 +269,7 @@ export function Dashboard() {
           ]);
         } else {
           setDevelopers(
-            developers.map(developer => {
+            developers.map((developer) => {
               if (developer._id === existing_developer._id) {
                 return {
                   ...developer,
@@ -355,7 +355,7 @@ export function Dashboard() {
 
   useEffect(() => {
     (async () => {
-      navigator.geolocation.getCurrentPosition(pos => {
+      navigator.geolocation.getCurrentPosition((pos) => {
         const { latitude: lat, longitude: lng } = pos.coords;
         setCoordinates({ lat, lng });
       });
@@ -370,8 +370,8 @@ export function Dashboard() {
             type="text"
             placeholder="Search"
             value={search}
-            onChange={e => setSearch(e.target.value)}
-            onKeyUp={e => e.keyCode === 13 && handleSearch()}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyUp={(e) => e.keyCode === 13 && handleSearch()}
           />
           <Clear
             type="button"
