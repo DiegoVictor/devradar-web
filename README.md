@@ -4,7 +4,7 @@
 # [Web] DevRadar
 [![Build Status](https://img.shields.io/travis/com/DiegoVictor/devradar-web?logo=travis&style=flat-square)](https://travis-ci.com/DiegoVictor/devradar-web)
 [![react](https://img.shields.io/badge/reactjs-18.2.0-61dafb?style=flat-square&logo=react)](https://reactjs.org/)
-[![styled-components](https://img.shields.io/badge/styled_components-6.0.6-db7b86?style=flat-square&logo=styled-components)](https://styled-components.com/)
+[![styled-components](https://img.shields.io/badge/styled_components-6.0.7-db7b86?style=flat-square&logo=styled-components)](https://styled-components.com/)
 [![eslint](https://img.shields.io/badge/eslint-8.46.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
 [![airbnb-style](https://flat.badgen.net/badge/style-guide/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 [![jest](https://img.shields.io/badge/jest-29.6.2-brightgreen?style=flat-square&logo=jest)](https://jestjs.io/)
