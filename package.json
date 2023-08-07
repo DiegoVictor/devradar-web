@@ -18,8 +18,8 @@
     "yup": "^1.2.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "jest --runInBand",
     "eject": "react-scripts eject"
   },
