@@ -1,8 +1,5 @@
-
-
-
 # [Web] DevRadar
-[![Build Status](https://img.shields.io/travis/com/DiegoVictor/devradar-web?logo=travis&style=flat-square)](https://travis-ci.com/DiegoVictor/devradar-web)
+[![buddy pipeline](https://app.buddy.works/diegovictor-github/devradar-web/pipelines/pipeline/461450/badge.svg?token=c159fed54bb24f01312ce661e41d6d2194e77a116a43e096fa27e82d5b0245e0 "buddy pipeline")](https://app.buddy.works/diegovictor-github/devradar-web/pipelines/pipeline/461450)
 [![react](https://img.shields.io/badge/reactjs-18.2.0-61dafb?style=flat-square&logo=react)](https://reactjs.org/)
 [![styled-components](https://img.shields.io/badge/styled_components-6.0.7-db7b86?style=flat-square&logo=styled-components)](https://styled-components.com/)
 [![eslint](https://img.shields.io/badge/eslint-8.46.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
